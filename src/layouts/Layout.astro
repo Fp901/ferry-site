@@ -1,0 +1,78 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  /** Browser tab + og:title */
+  title: string;
+  /** Meta description (keep under 155 chars) */
+  description: string;
+  /** Canonical path, e.g. "/" or "/menu" */
+  canonical?: string;
+  /** og:image absolute URL — use a real photo once available */
+  ogImage?: string;
+  /** JSON-LD schema objects to inject into <head> */
+  schemas?: object[];
+}
+
+const {
+  title,
+  description,
+  canonical = '/',
+  ogImage = 'https://theferry.cafe/og-image.jpg',
+  schemas = [],
+} = Astro.props;
+
+const canonicalUrl = `https://theferry.cafe${canonical}`;
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Geo signals -->
+    <meta name="geo.region"    content="GB-SFK" />
+    <meta name="geo.placename" content="Felixstowe, Suffolk" />
+    <meta name="geo.position"  content="51.9664;1.3765" />
+    <meta name="ICBM"          content="51.9664, 1.3765" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:site_name"   content="The Ferry Cafe" />
+    <meta property="og:locale"      content="en_GB" />
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url"         content={canonicalUrl} />
+    <meta property="og:image"       content={ogImage} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"       content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Inject any page-specific JSON-LD schemas -->
+    {schemas.map(schema => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+
+    <!-- Slot for any extra per-page <head> content -->
+    <slot name="head" />
+  </head>
+
+  <body class="flex flex-col min-h-screen font-sans bg-white text-gray-800">
+    <Header />
+    <slot />
+    <!-- Mobile sticky bar spacer (pages that render the bar add this themselves) -->
+    <Footer />
+  </body>
+</html>
