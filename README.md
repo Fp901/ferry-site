@@ -13,7 +13,7 @@ Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.c
 | **Framework** | Astro 4 |
 | **Styling** | Tailwind CSS 3 |
 | **Language** | TypeScript |
-| **Target domain** | `https://theferrycafe.co.uk` |
+| **Target domain** | `https://theferry.cafe` |
 | **Location** | Felixstowe Ferry, Suffolk, IP11 9RZ |
 
 ---
@@ -95,7 +95,7 @@ npm run preview
 
 - Canonical URLs and `robots` meta on every page
 - **Open Graph** and **Twitter Card** tags
-- **JSON-LD structured data** (Restaurant schema) on the homepage
+- **JSON-LD structured data** — Restaurant/LocalBusiness on every page (via `Layout.astro`), plus `Menu` on /menu, `FAQPage` on the homepage and `BreadcrumbList` on sub-pages
 - Geographic meta tags (`geo.region`, `geo.position`, ICBM) for local search signals
 - Semantic HTML with descriptive `alt` text on all images
 

@@ -1,34 +1,18 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import { breadcrumbSchema } from '../lib/schema';
+
+const breadcrumbs = breadcrumbSchema([
+  { name: "Home",    path: "/" },
+  { name: "Contact", path: "/contact" },
+]);
 ---
-<!doctype html>
-<html lang="en-GB">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Find Us – The Ferry Cafe | Felixstowe Ferry, Suffolk IP11 9RZ</title>
-    <meta name="description" content="Find The Ferry Cafe at Felixstowe Ferry, Suffolk IP11 9RZ. Open Wed–Sun 10am–2pm. Call 01394 276305 or email hello@theferry.cafe." />
-    <link rel="canonical" href="https://theferry.cafe/contact" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title"       content="Find Us – The Ferry Cafe, Felixstowe Ferry" />
-    <meta property="og:description" content="Felixstowe Ferry, Suffolk IP11 9RZ. Open Wed–Sun 10am–2pm. 01394 276305." />
-    <meta property="og:url"         content="https://theferry.cafe/contact" />
-    <meta property="og:type"        content="website" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <script type="application/ld+json">{JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://theferry.cafe/" },
-        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://theferry.cafe/contact" },
-      ],
-    })}</script>
-  </head>
-
-  <body class="flex flex-col min-h-screen font-sans bg-white text-gray-800">
-    <Header />
-
+<Layout
+  title="Find Us – The Ferry Cafe | Felixstowe Ferry, Suffolk IP11 9RZ"
+  description="Find The Ferry Cafe at Felixstowe Ferry, Suffolk IP11 9RZ. Kitchen open Wed–Sun 10am–3pm. Call 01394 276305."
+  canonical="/contact"
+  schemas={[breadcrumbs]}
+>
     <main id="main-content" class="flex-grow">
 
       <!-- Page header -->
@@ -39,7 +23,7 @@ import Footer from '../components/Footer.astro';
           </p>
           <h1 class="text-3xl sm:text-4xl font-extrabold mb-2">Find Us</h1>
           <p class="text-sky-100 text-sm sm:text-base max-w-xl">
-            We're right on the water at Felixstowe Ferry — hard to miss, worth the trip.
+            Find The Ferry Cafe right on the water at Felixstowe Ferry. Hard to miss, worth the trip.
           </p>
         </div>
       </div>
@@ -76,10 +60,10 @@ import Footer from '../components/Footer.astro';
               </a>
             </section>
 
-            <!-- Phone & Email -->
+            <!-- Phone -->
             <section aria-labelledby="contact-heading">
               <h2 id="contact-heading" class="text-xs font-bold text-brand-navy uppercase tracking-widest mb-3">
-                Phone &amp; Email
+                Phone
               </h2>
               <ul class="space-y-3 text-sm sm:text-base">
                 <li class="flex items-center gap-3">
@@ -89,15 +73,6 @@ import Footer from '../components/Footer.astro';
                   </svg>
                   <a href="tel:+441394276305" class="text-primary font-semibold hover:underline">
                     01394 276305
-                  </a>
-                </li>
-                <li class="flex items-center gap-3">
-                  <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                  </svg>
-                  <a href="mailto:hello@theferry.cafe" class="text-primary font-semibold hover:underline">
-                    hello@theferry.cafe
                   </a>
                 </li>
               </ul>
@@ -112,23 +87,23 @@ import Footer from '../components/Footer.astro';
                 <tbody>
                   <tr class="border-b border-gray-100">
                     <td class="py-2 pr-6 font-medium text-gray-700">Wednesday</td>
-                    <td class="py-2 text-gray-600">10am – 2pm</td>
+                    <td class="py-2 text-gray-600">10am – 3pm</td>
                   </tr>
                   <tr class="border-b border-gray-100">
                     <td class="py-2 pr-6 font-medium text-gray-700">Thursday</td>
-                    <td class="py-2 text-gray-600">10am – 2pm</td>
+                    <td class="py-2 text-gray-600">10am – 3pm</td>
                   </tr>
                   <tr class="border-b border-gray-100">
                     <td class="py-2 pr-6 font-medium text-gray-700">Friday</td>
-                    <td class="py-2 text-gray-600">10am – 2pm</td>
+                    <td class="py-2 text-gray-600">10am – 3pm</td>
                   </tr>
                   <tr class="border-b border-gray-100">
                     <td class="py-2 pr-6 font-medium text-gray-700">Saturday</td>
-                    <td class="py-2 text-gray-600">10am – 2pm</td>
+                    <td class="py-2 text-gray-600">10am – 3pm</td>
                   </tr>
                   <tr class="border-b border-gray-100">
                     <td class="py-2 pr-6 font-medium text-gray-700">Sunday</td>
-                    <td class="py-2 text-gray-600">10am – 2pm</td>
+                    <td class="py-2 text-gray-600">10am – 3pm</td>
                   </tr>
                   <tr class="border-b border-gray-100">
                     <td class="py-2 pr-6 font-medium text-gray-400">Monday</td>
@@ -140,7 +115,7 @@ import Footer from '../components/Footer.astro';
                   </tr>
                 </tbody>
               </table>
-              <p class="text-xs text-gray-400 mt-2">* Open on bank holidays and during school holidays.</p>
+              <p class="text-xs text-gray-400 mt-2">* Open Monday &amp; Tuesday during school holidays.</p>
             </section>
 
             <!-- Getting here -->
@@ -169,106 +144,32 @@ import Footer from '../components/Footer.astro';
             </section>
           </div>
 
-          <!-- ── RIGHT: Map placeholder + Contact form ── -->
+          <!-- ── RIGHT: Map ── -->
           <div class="space-y-8">
 
-            <!-- Map placeholder -->
+            <!-- Embedded map (lazy-loaded, kept off the critical path) -->
             <div class="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+              <iframe
+                title="Map showing The Ferry Cafe, Felixstowe Ferry, Suffolk IP11 9RZ"
+                src="https://www.google.com/maps?q=The+Ferry+Cafe+Felixstowe+Ferry+IP11+9RZ&output=embed"
+                width="100%" height="300" style="border:0;"
+                loading="lazy" allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                class="block w-full"
+              ></iframe>
               <a
                 href="https://maps.google.com/?q=The+Ferry+Cafe+Felixstowe+Ferry+IP11+9RZ"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="block"
-                aria-label="Open The Ferry Cafe location in Google Maps"
+                target="_blank" rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 py-2.5 bg-sky-50 hover:bg-sky-100 text-sky-700 text-sm font-semibold transition-colors"
               >
-                <!-- TODO: Replace this placeholder with a real embedded map.
-                     Option 1 (free): Google Maps embed iframe
-                     Option 2 (privacy-friendly): OpenStreetMap via iframe or map image
-                     Example iframe:
-                     <iframe
-                       src="https://www.google.com/maps/embed?pb=..."
-                       width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"
-                       referrerpolicy="no-referrer-when-downgrade"
-                       title="Map showing The Ferry Cafe location"
-                     ></iframe>
-                -->
-                <div class="bg-sky-100 h-64 flex flex-col items-center justify-center text-sky-700 gap-2 hover:bg-sky-200 transition-colors">
-                  <svg class="w-10 h-10 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                  </svg>
-                  <p class="font-semibold text-sm">Felixstowe Ferry, IP11 9RZ</p>
-                  <p class="text-xs text-sky-500">Click to open in Google Maps</p>
-                </div>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                Open in Google Maps
               </a>
             </div>
-
-            <!-- Contact form -->
-            <section aria-labelledby="form-heading">
-              <h2 id="form-heading" class="text-xs font-bold text-brand-navy uppercase tracking-widest mb-4">
-                Send Us a Message
-              </h2>
-
-              <!--
-                TODO: Activate this form with Formspree.
-                1. Sign up free at https://formspree.io
-                2. Create a new form and copy your form ID
-                3. Replace YOUR_FORM_ID below with your actual form ID
-                4. Remove the `pointer-events-none opacity-60` classes from the <form> tag
-              -->
-
-              <div class="relative">
-                <div class="absolute inset-0 bg-white/60 backdrop-blur-sm rounded-xl z-10 flex items-center justify-center">
-                  <div class="bg-sky-50 border border-sky-200 rounded-lg p-4 text-center text-sm text-sky-800 max-w-xs mx-4">
-                    <p class="font-bold mb-1">Contact form coming soon</p>
-                    <p>In the meantime, call us on
-                      <a href="tel:+441394276305" class="underline font-semibold">01394 276305</a>
-                      or email
-                      <a href="mailto:hello@theferry.cafe" class="underline font-semibold">hello@theferry.cafe</a>.
-                    </p>
-                  </div>
-                </div>
-
-                <form
-                  action="https://formspree.io/f/YOUR_FORM_ID"
-                  method="POST"
-                  class="space-y-4 opacity-30 pointer-events-none"
-                  aria-hidden="true"
-                >
-                  <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                    <input
-                      id="name" name="name" type="text" autocomplete="name"
-                      class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input
-                      id="email" name="email" type="email" autocomplete="email"
-                      class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
-                      placeholder="you@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                    <textarea
-                      id="message" name="message" rows="4"
-                      class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary resize-none"
-                      placeholder="Your message…"
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    class="w-full py-3 bg-primary hover:bg-sky-600 text-white font-bold rounded-lg transition-colors text-sm"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              </div>
-            </section>
 
           </div>
         </div>
@@ -279,7 +180,7 @@ import Footer from '../components/Footer.astro';
         <div class="container mx-auto px-4 text-center">
           <p class="text-2xl mb-2" aria-hidden="true">⭐⭐⭐⭐⭐</p>
           <h2 class="text-lg font-bold text-gray-800 mb-1">Had a great time?</h2>
-          <p class="text-gray-500 text-sm mb-5 max-w-xs mx-auto">Help others find us — a quick Google review makes a huge difference to a small independent café.</p>
+          <p class="text-gray-500 text-sm mb-5 max-w-xs mx-auto">Help others find our Felixstowe Ferry fish & chips cafe. A quick Google review makes a huge difference to a small independent café.</p>
           <a href="https://search.google.com/local/writereview?placeid=ChIJIeBvYUN42UcRWsRJ8xkySJE"
              target="_blank" rel="noopener noreferrer"
              class="inline-flex items-center gap-2 px-7 py-3 bg-[#4285F4] hover:bg-[#3367d6] text-white font-bold rounded-full shadow transition-colors text-sm">
@@ -321,7 +222,4 @@ import Footer from '../components/Footer.astro';
       </div>
     </div>
     <div class="h-14 sm:hidden" aria-hidden="true"></div>
-
-    <Footer />
-  </body>
-</html>
+</Layout>

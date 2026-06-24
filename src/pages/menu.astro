@@ -1,115 +1,188 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import { SITE, breadcrumbSchema } from '../lib/schema';
 
 const sections = [
   {
     heading: "Breakfast",
     emoji: "🍳",
-    note: "Served all day",
+    note: "Served until midday",
     items: [
-      { name: "Full English Breakfast",  desc: "Locally sourced eggs, bacon, sausages, baked beans, grilled tomato, mushrooms & toast" },
-      { name: "Veggie Breakfast",        desc: "Vegan sausages, eggs, baked beans, grilled tomato, mushrooms & toast" },
-      { name: "Eggs on Toast",           desc: "Fried, scrambled or poached — your choice" },
-      { name: "Bacon Bap",               desc: "Thick-cut back bacon in a soft white or brown roll" },
-      { name: "Sausage Bap",             desc: "Two pork sausages in a soft roll with sauce of your choice" },
+      { name: "Ferry Breakfast",                 desc: "Suffolk sausage, bacon, hash brown, beans, sautéed mushrooms, fried egg, toast & butter" },
+      { name: "Vegetarian Breakfast",            desc: "Vegetarian sausage, hash brown, beans, sautéed mushrooms, fried egg, toast & butter" },
+      { name: "Scrambled Eggs on Toast",         desc: "" },
+      { name: "Heinz Baked Beans on Toast",      desc: "" },
+      { name: "Scrambled Eggs on Toast with Smoked Bacon", desc: "" },
+      { name: "Three Egg Omelette",              desc: "Choice of Suffolk ham, mature cheddar or mushroom, served with beans, toast & butter" },
+    ],
+  },
+  {
+    heading: "Artisan Breakfast Rolls",
+    emoji: "🥖",
+    note: "Served until midday",
+    items: [
+      { name: "Free Range Fried Egg",            desc: "" },
+      { name: "Suffolk Bacon",                   desc: "" },
+      { name: "Bacon & Egg",                     desc: "" },
+      { name: "Suffolk Sausage",                 desc: "" },
+      { name: "Sausage & Egg",                   desc: "" },
+      { name: "Sausage & Bacon",                 desc: "" },
+      { name: "Sausage, Bacon & Egg",            desc: "" },
+      { name: "The Full Works",                  desc: "Sausage, bacon, egg, American cheese & smashed hash brown" },
+      { name: "Vegetarian Sausage",              desc: "" },
     ],
   },
   {
     heading: "Fish & Chips",
     emoji: "🐟",
-    note: "Felixstowe Ferry's finest",
+    note: "Served from midday · all fish subject to availability · with mushy peas & tartare sauce",
     items: [
-      { name: "Cod & Chips",             desc: "Hand-battered fresh cod fillet with chunky chips & tartare sauce" },
-      { name: "Haddock & Chips",         desc: "Hand-battered haddock with chunky chips & tartare sauce" },
-      { name: "Scampi & Chips",          desc: "Breaded scampi with chunky chips & tartare sauce" },
-      { name: "Chips",                   desc: "A generous portion of chunky chips — great with a side of mushy peas" },
+      { name: "Cod & Chips",                     desc: "" },
+      { name: "Half Portion Cod & Chips",        desc: "" },
+      { name: "Plaice & Chips",                  desc: "" },
+      { name: "Haddock & Chips",                 desc: "" },
+      { name: "Wholetail Scampi & Chips",        desc: "" },
+      { name: "Grilled Sea Bass & Chips",        desc: "" },
     ],
   },
   {
-    heading: "Seafood & Mains",
-    emoji: "🦀",
-    note: "Suffolk coastal produce",
+    heading: "Brunch",
+    emoji: "🍽️",
+    note: "Served from midday",
     items: [
-      { name: "Dressed Crab",            desc: "Local Suffolk crab dressed in the traditional way, served with bread & butter" },
-      { name: "Grilled Cod",             desc: "Fresh grilled cod fillet with seasonal vegetables" },
-      { name: "Seafood Platter",         desc: "A selection of local coastal seafood — ask your server for today's catch" },
-      { name: "Chicken Parma",           desc: "Grilled chicken breast topped with ham, napoli sauce & melted cheese" },
-      { name: "Sirloin Steak",           desc: "8oz sirloin, served with chunky chips & a choice of sauce" },
+      { name: "Free Range Fried Eggs & Chips",   desc: "" },
+      { name: "Home-cooked Suffolk Ham, Eggs & Chips", desc: "" },
+      { name: "Suffolk Sausages, Chips & Beans", desc: "" },
+      { name: "Suffolk Sausages, Eggs, Chips & Beans", desc: "" },
+      { name: "Vegetarian Sausages, Chips & Beans", desc: "" },
+      { name: "Vegetarian Sausages, Eggs, Chips & Beans", desc: "" },
+      { name: "Three Egg Omelette",              desc: "Choice of Suffolk ham, mature cheddar or mushroom, served with chips & beans" },
     ],
   },
   {
-    heading: "Light Bites & Lunches",
-    emoji: "🥗",
-    note: "Ideal after a coastal walk",
+    heading: "Baguettes & Rolls",
+    emoji: "🥪",
+    note: "Served from midday · freshly baked baguette or artisan baker's roll, served with chips",
     items: [
-      { name: "Jacket Potato",           desc: "Oven-baked jacket potato with your choice of filling: cheese, beans, tuna mayo or coleslaw" },
-      { name: "Fresh Salad",             desc: "Crisp seasonal salad with your choice of protein topping" },
-      { name: "Baguettes & Sandwiches", desc: "Freshly made with a variety of fillings — ask at the counter" },
-      { name: "Soup of the Day",         desc: "Homemade soup with a crusty roll — ask your server for today's selection" },
+      { name: "Suffolk Pork Sausage",           desc: "" },
+      { name: "Suffolk Smoked Back Bacon",      desc: "" },
+      { name: "Home-cooked Ham & Salad",        desc: "" },
+      { name: "Home-cooked Ham & Cheese",       desc: "" },
+      { name: "Cheddar Cheese & Chutney",       desc: "" },
+      { name: "Tuna, Mayonnaise & Cucumber",    desc: "" },
+      { name: "Bacon, Fresh Leaves, Tomato & Mayonnaise", desc: "" },
+      { name: "Fish Fingers, Fresh Leaves & Tartare Sauce", desc: "" },
+      { name: "Vegetarian Sausages, Red Onion Jam & Fresh Leaves", desc: "" },
+      { name: "Luxury Prawn",                   desc: "In a prawn cocktail sauce with fresh leaves" },
+      { name: "Suffolk Club",                   desc: "Sliced roasted turkey breast, smoked Suffolk bacon, gouda, tomato, fresh rocket & mayonnaise" },
     ],
   },
   {
-    heading: "Burgers",
-    emoji: "🍔",
-    note: "Including vegan options",
+    heading: "Children's Meals",
+    emoji: "🧒",
+    note: "Served with chips, beans & a Fruit Shoot",
     items: [
-      { name: "Classic Beef Burger",     desc: "6oz beef patty, lettuce, tomato, pickles & burger sauce in a brioche bun with chips" },
-      { name: "Chicken Burger",          desc: "Grilled or crispy chicken breast with slaw & aioli in a brioche bun with chips" },
-      { name: "Beetroot & Mushroom Burger", desc: "Vegan beetroot and mushroom patty with lettuce, tomato & vegan mayo — served with chips" },
+      { name: "Chicken Nuggets",                desc: "" },
+      { name: "Sausage",                        desc: "" },
+      { name: "Fish Fingers",                   desc: "" },
+    ],
+  },
+  {
+    heading: "Sides",
+    emoji: "🍟",
+    note: "",
+    items: [
+      { name: "Chips",                          desc: "" },
+      { name: "Cheesy Chips",                   desc: "" },
+      { name: "Baker's White Buttered Roll",    desc: "" },
     ],
   },
   {
     heading: "Cakes & Desserts",
     emoji: "🍰",
-    note: "Baked fresh daily",
+    note: "Freshly baked cakes, selection changes daily, ask at the counter",
     items: [
-      { name: "Homemade Cake",           desc: "Slice of today's homemade cake — ask your server for the daily selection" },
-      { name: "Scone with Clotted Cream", desc: "Fresh-baked scone with clotted cream and strawberry jam" },
-      { name: "Pudding of the Day",      desc: "Ask your server for our freshly made dessert selection" },
+      { name: "Homemade Cakes",                 desc: "A changing selection of freshly baked homemade cakes, ask for today's choice" },
     ],
   },
   {
-    heading: "Hot & Cold Drinks",
+    heading: "Hot Drinks",
     emoji: "☕",
-    note: "Including children's options",
+    note: "From our Italian espresso machine · all teas served in mugs",
     items: [
-      { name: "Filter Coffee",           desc: "Freshly brewed — regular or large" },
-      { name: "Cappuccino / Latte",      desc: "Espresso-based coffees made to order" },
-      { name: "Tea",                     desc: "English breakfast tea — pot for one or two" },
-      { name: "Soft Drinks",             desc: "Colas, lemonades, juices and cordials" },
-      { name: "Beer & Wine",             desc: "A selection of beers and wines available — ask at the counter" },
+      { name: "Breakfast Tea",                  desc: "" },
+      { name: "Herbal Tea / Decaf Tea",         desc: "" },
+      { name: "Espresso",                       desc: "" },
+      { name: "Americano",                      desc: "" },
+      { name: "Flat White",                     desc: "" },
+      { name: "Cappuccino",                     desc: "" },
+      { name: "Café Latte",                     desc: "" },
+      { name: "Chai Latte",                     desc: "" },
+      { name: "Mocha",                          desc: "" },
+      { name: "Hot Chocolate",                  desc: "" },
+      { name: "Luxury Hot Chocolate",           desc: "" },
+      { name: "Coffee Syrups",                  desc: "" },
+    ],
+  },
+  {
+    heading: "Cold Drinks",
+    emoji: "🥤",
+    note: "",
+    items: [
+      { name: "Still Water",                    desc: "" },
+      { name: "Sparkling Water",                desc: "" },
+      { name: "Fruit Juice",                    desc: "Apple or orange" },
+      { name: "Coke / Diet Coke / Fanta / Sprite Zero", desc: "" },
+      { name: "Lipton Ice Tea",                 desc: "Lemon or peach" },
+      { name: "Fruit Shoots",                   desc: "Apple & blackcurrant or orange" },
+      { name: "Iced Latte",                     desc: "" },
+      { name: "Luxury Milkshakes",              desc: "Made with vanilla ice cream & topped with whipped cream, in vanilla, Nutella, real banana or Biscoff" },
+    ],
+  },
+  {
+    heading: "Alcohol",
+    emoji: "🍺",
+    note: "We're a fully licensed establishment · over-18s only · please drink responsibly",
+    items: [
+      { name: "Peroni",                         desc: "5% · 330ml" },
+      { name: "Adnams Ghost Ship",              desc: "4.5% · 500ml" },
+      { name: "Adnams Ghost Ship (low alcohol)", desc: "0.5% · 500ml" },
+      { name: "Aspall Cyder",                   desc: "5.5% · 330ml" },
+      { name: "Pinot Grigio",                   desc: "12% · 175ml" },
+      { name: "White Grenache Rosé",            desc: "9.5% · 175ml" },
     ],
   },
 ];
+
+// Menu schema built from the section data above, eligible for food/menu SERP
+// features. Prices aren't published, so offers are intentionally omitted.
+const menuSchema = {
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "name": "The Ferry Cafe Menu",
+  "url": `${SITE}/menu`,
+  "hasMenuSection": sections.map(section => ({
+    "@type": "MenuSection",
+    "name": section.heading,
+    "hasMenuItem": section.items.map(item => ({
+      "@type": "MenuItem",
+      "name": item.name,
+      ...(item.desc ? { "description": item.desc } : {}),
+    })),
+  })),
+};
+
+const breadcrumbs = breadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Menu", path: "/menu" },
+]);
 ---
-<!doctype html>
-<html lang="en-GB">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu – The Ferry Cafe Felixstowe | Fish &amp; Chips, Breakfast &amp; More</title>
-    <meta name="description" content="Browse The Ferry Cafe's menu: hand-battered fish & chips, full English breakfast, dressed crab, burgers, homemade cakes & more. Felixstowe Ferry, Suffolk." />
-    <link rel="canonical" href="https://theferry.cafe/menu" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title"       content="Menu – The Ferry Cafe Felixstowe" />
-    <meta property="og:description" content="Fish & chips, all-day breakfast, dressed crab, burgers, homemade cakes and more." />
-    <meta property="og:url"         content="https://theferry.cafe/menu" />
-    <meta property="og:type"        content="website" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <script type="application/ld+json">{JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",  "item": "https://theferry.cafe/" },
-        { "@type": "ListItem", "position": 2, "name": "Menu",  "item": "https://theferry.cafe/menu" },
-      ],
-    })}</script>
-  </head>
-
-  <body class="flex flex-col min-h-screen font-sans bg-white text-gray-800">
-    <Header />
-
+<Layout
+  title="Menu – The Ferry Cafe Felixstowe | Fish & Chips, Brunch & Breakfast"
+  description="The Ferry Cafe menu: hand-battered fish & chips (cod, haddock, plaice & scampi), plus cooked breakfasts, brunch, freshly baked baguettes, children's meals & luxury milkshakes. Felixstowe Ferry, Suffolk."
+  canonical="/menu"
+  schemas={[menuSchema, breadcrumbs]}
+>
     <main id="main-content" class="flex-grow">
 
       <!-- Page header -->
@@ -121,7 +194,7 @@ const sections = [
           <h1 class="text-3xl sm:text-4xl font-extrabold mb-2">Our Menu</h1>
           <p class="text-sky-100 text-sm sm:text-base max-w-xl">
             Everything made with care at Felixstowe Ferry since 1953.
-            Dine in or takeaway — <a href="tel:+441394276305" class="underline font-medium">call us</a> to check today's specials.
+            Dine in or takeaway. <a href="tel:+441394276305" class="underline font-medium">Call us</a> to check today's specials.
           </p>
         </div>
       </div>
@@ -130,7 +203,7 @@ const sections = [
       <div class="bg-sky-50 border-b border-sky-100">
         <div class="container mx-auto px-4 py-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-sky-800">
           <span>
-            <strong>Kitchen hours:</strong> Wed–Sun 10am–2pm
+            <strong>Kitchen hours:</strong> Wed–Sun 10am–3pm
           </span>
           <span class="text-sky-500">|</span>
           <span>Closed Mon &amp; Tue (open school holidays)</span>
@@ -184,12 +257,12 @@ const sections = [
 
         <!-- Pricing note -->
         <aside class="bg-sky-50 border border-sky-200 rounded-xl p-5 text-sm text-sky-800 max-w-2xl">
-          <p class="font-bold mb-1">Prices &amp; availability</p>
+          <p class="font-bold mb-1">Specials, prices &amp; availability</p>
           <p>
-            Prices and daily specials vary. Please
-            <a href="tel:+441394276305" class="underline font-medium">call us on 01394 276305</a>
-            or <a href="/contact" class="underline font-medium">visit the cafe</a> for the current
-            price list. Menu items are subject to seasonal availability.
+            We run <strong>seasonal specials that change from time to time</strong>. Ask at the
+            counter or <a href="tel:+441394276305" class="underline font-medium">call us on 01394 276305</a>
+            for today's specials. Prices vary and menu items are subject to seasonal availability;
+            <a href="/contact" class="underline font-medium">visit the cafe</a> for the current price list.
           </p>
         </aside>
 
@@ -252,7 +325,4 @@ const sections = [
       </div>
     </div>
     <div class="h-14 sm:hidden" aria-hidden="true"></div>
-
-    <Footer />
-  </body>
-</html>
+</Layout>

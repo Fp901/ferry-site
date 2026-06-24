@@ -1,17 +1,17 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import { breadcrumbSchema } from '../lib/schema';
 
 const values = [
   {
     icon: "🐟",
     title: "Locally sourced",
-    text: "We work with local Suffolk suppliers wherever possible — from the eggs in our breakfasts to the catch on your plate.",
+    text: "We work with local Suffolk suppliers wherever possible, from the eggs in our breakfasts to the fish in our fish and chips.",
   },
   {
     icon: "🌊",
     title: "Part of the Ferry",
-    text: "We're not just near the water — we're woven into the fabric of Felixstowe Ferry, alongside the sailing club, the boat yard and the foot ferry.",
+    text: "We're not just near the water. We're woven into the fabric of Felixstowe Ferry, alongside the sailing club, the boat yard and the foot ferry.",
   },
   {
     icon: "🐾",
@@ -21,180 +21,156 @@ const values = [
   {
     icon: "🥡",
     title: "Dine in or takeaway",
-    text: "Grab a table with a view, or take your fish & chips down to the shingle — both are equally right.",
+    text: "Grab a table with a view, or take your fish & chips down to the shingle. Both are equally right.",
   },
 ];
+
+const breadcrumbs = breadcrumbSchema([
+  { name: "Home",  path: "/" },
+  { name: "About", path: "/about" },
+]);
 ---
-<!doctype html>
-<html lang="en-GB">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us – The Ferry Cafe | Felixstowe Ferry Since 1953</title>
-    <meta name="description" content="The Ferry Cafe has served the Suffolk coast at Felixstowe Ferry since 1953. Discover our story — fish & chips, 1950s nostalgia and views of the River Deben." />
-    <link rel="canonical" href="https://theferry.cafe/about" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title"       content="About The Ferry Cafe – Felixstowe Ferry Since 1953" />
-    <meta property="og:description" content="A Suffolk coast landmark since 1953. Fresh fish & chips, 1950s diner vibes and views over the River Deben." />
-    <meta property="og:url"         content="https://theferry.cafe/about" />
-    <meta property="og:type"        content="website" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <script type="application/ld+json">{JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",  "item": "https://theferry.cafe/" },
-        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://theferry.cafe/about" },
-      ],
-    })}</script>
-  </head>
+<Layout
+  title="About Us – The Ferry Cafe | Felixstowe Ferry Since 1953"
+  description="The Ferry Cafe has served fresh fish & chips on the Suffolk coast at Felixstowe Ferry since 1953. Discover our story: hand-battered fish, 1950s diner nostalgia and River Deben views."
+  canonical="/about"
+  schemas={[breadcrumbs]}
+>
+  <main id="main-content" class="flex-grow">
 
-  <body class="flex flex-col min-h-screen font-sans bg-white text-gray-800">
-    <Header />
+    <!-- Type-led hero (no image weight) -->
+    <div class="relative bg-gradient-to-br from-brand-navy via-[#16566c] to-primary text-white py-16 sm:py-24 overflow-hidden">
+      <svg class="absolute bottom-0 inset-x-0 w-full text-white/5" viewBox="0 0 1440 220" fill="none" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="currentColor" d="M0 120l60 13.3C120 147 240 173 360 165.3 480 157 600 117 720 112c120-5 240 25 360 40s240 5 300-2.7l60-7.3V220H0z"/>
+      </svg>
+      <div class="relative container mx-auto px-4">
+        <p class="text-sky-200 text-sm mb-1">
+          <a href="/" class="hover:underline">Home</a> &rsaquo; About
+        </p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold">About Us</h1>
+        <p class="text-white/75 text-sm sm:text-base mt-2 max-w-xl">
+          A Felixstowe Ferry landmark serving the Suffolk coast since 1953.
+        </p>
+      </div>
+    </div>
 
-    <main id="main-content" class="flex-grow">
+    <!-- Story section -->
+    <section class="py-16" aria-labelledby="story-heading">
+      <div class="container mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-5xl mx-auto">
+          <div>
+            <h2 id="story-heading" class="text-3xl sm:text-4xl font-extrabold text-brand-navy mb-6">Our Story</h2>
+            <div class="space-y-5 text-gray-600 leading-relaxed">
+              <p>
+                The Ferry Cafe has stood at the water's edge at <strong>Felixstowe Ferry</strong> since
+                <strong>1953</strong>, making it one of the longest-running seaside fish and chip cafes on the
+                Suffolk coast. Perched at the mouth of the <strong>River Deben estuary</strong>, directly
+                opposite the Felixstowe Ferry Sailing Club and boat yard, it has fed generations of
+                sailors, dog walkers, golfers, families and curious visitors arriving on the foot ferry
+                from Bawdsey.
+              </p>
+              <p>
+                Walk through the door and you'll notice something different. The decor is a love letter
+                to the <strong>1950s</strong>, with vintage vinyl records covering the walls, theatrical posters
+                lining the corridors, and the whole place humming with the kind of cheerful nostalgia that
+                only a genuinely old establishment can carry off. It's part American diner, part Suffolk
+                fishing shack, and entirely its own thing.
+              </p>
+              <p>
+                The food has always been the point. <strong>Fresh fish and chips</strong>: cod, haddock,
+                plaice and scampi, hand-battered to order and served from midday with mushy peas and
+                tartare sauce. <strong>Cooked breakfasts</strong> until midday, built on locally sourced
+                Suffolk ingredients. Proper brunches, freshly baked baguettes and luxury milkshakes.
+                Portions are generous. The queue at lunch is usually worth it.
+              </p>
+              <p>
+                Outside, the terrace faces directly across the estuary. On a good day you'll watch
+                yachts and dayboats tacking up the Deben against a backdrop of marshland and open
+                Suffolk sky. On a grey day it's just as good: strong tea, something hot, and the sound
+                of rigging in the wind.
+              </p>
+              <p>
+                We're <strong>dog friendly</strong>, <strong>family friendly</strong>, and open to
+                everyone who finds their way to this quiet corner of the Suffolk coast. Our kitchen
+                serves Wednesday to Sunday, 10am to 3pm. Come hungry.
+              </p>
+            </div>
+          </div>
 
-      <!-- Full-bleed hero image — breakfast photo shows the sea/sky view beautifully -->
-      <div class="relative h-72 sm:h-96 lg:h-[480px] overflow-hidden">
-        <img
-          src="/assets/food-breakfast.webp"
-          alt="Full English breakfast at The Ferry Cafe with seaside views through the window, Felixstowe Ferry"
-          width="1200" height="800"
-          loading="eager"
-          class="w-full h-full object-cover object-center"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 to-transparent flex items-end">
-          <div class="container mx-auto px-4 pb-8">
-            <p class="text-sky-300 text-sm mb-1">
-              <a href="/" class="hover:underline">Home</a> &rsaquo; About
-            </p>
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-white">About Us</h1>
-            <p class="text-white/70 text-sm sm:text-base mt-2">
-              A Felixstowe Ferry landmark serving the Suffolk coast since 1953.
-            </p>
+          <!-- Single supporting photo (illustrates the 1950s interior) -->
+          <div class="lg:sticky lg:top-24 rounded-2xl overflow-hidden shadow-2xl aspect-[3/4]">
+            <img
+              src="/assets/food-burger.webp"
+              alt="The jukebox and retro 1950s diner interior at The Ferry Cafe, Felixstowe Ferry"
+              width="600" height="800"
+              loading="lazy" decoding="async"
+              class="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Story section -->
-      <section class="py-16" aria-labelledby="story-heading">
-        <div class="container mx-auto px-4">
-          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-5xl mx-auto">
-            <div>
-              <h2 id="story-heading" class="text-3xl sm:text-4xl font-extrabold text-brand-navy mb-6">Our Story</h2>
-              <div class="space-y-5 text-gray-600 leading-relaxed">
-          <p>
-            The Ferry Cafe has stood at the water's edge at <strong>Felixstowe Ferry</strong> since
-            <strong>1953</strong> — making it one of the longest-running seaside cafes on the
-            Suffolk coast. Perched at the mouth of the <strong>River Deben estuary</strong>, directly
-            opposite the Felixstowe Ferry Sailing Club and boat yard, it has fed generations of
-            sailors, dog walkers, golfers, families and curious visitors arriving on the foot ferry
-            from Bawdsey.
-          </p>
-          <p>
-            Walk through the door and you'll notice something different. The decor is a love letter
-            to the <strong>1950s</strong> — vintage vinyl records cover the walls, theatrical posters
-            line the corridors, and the whole place hums with the kind of cheerful nostalgia that
-            only a genuinely old establishment can carry off. It's part American diner, part Suffolk
-            fishing shack, and entirely its own thing.
-          </p>
-          <p>
-            The food has always been the point. <strong>Fresh fish and chips</strong> hand-battered
-            to order. <strong>Full English breakfasts</strong> built on locally sourced ingredients.
-            <strong>Dressed crab</strong> from the Suffolk coast, served the traditional way. Homemade
-            cakes baked fresh each morning. Portions are generous. The queue at lunch is usually worth it.
-          </p>
-          <p>
-            Outside, the terrace faces directly across the estuary. On a good day you'll watch
-            yachts and dayboats tacking up the Deben against a backdrop of marshland and open
-            Suffolk sky. On a grey day it's just as good — strong tea, something hot, and the sound
-            of rigging in the wind.
-          </p>
-          <p>
-            We're <strong>dog friendly</strong>, <strong>family friendly</strong>, and open to
-            everyone who finds their way to this quiet corner of the Suffolk coast. We serve
-            Wednesday to Sunday, 10am to 2pm. Come hungry.
-          </p>
-              </div>
+    <!-- What we stand for -->
+    <section class="bg-gray-50 py-12" aria-labelledby="values-heading">
+      <div class="container mx-auto px-4">
+        <h2 id="values-heading" class="text-2xl sm:text-3xl font-extrabold text-brand-navy mb-8 text-center">
+          What We're About
+        </h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
+          {values.map(v => (
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
+              <div class="text-3xl mb-3" aria-hidden="true">{v.icon}</div>
+              <h3 class="font-bold text-brand-navy mb-2">{v.title}</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">{v.text}</p>
             </div>
-
-            <!-- Jukebox photo — perfectly illustrates the 1950s story -->
-            <div class="lg:sticky lg:top-24 rounded-2xl overflow-hidden shadow-2xl aspect-[3/4]">
-              <img
-                src="/assets/food-burger.webp"
-                alt="The jukebox and retro 1950s diner interior at The Ferry Cafe, Felixstowe Ferry"
-                width="600" height="800"
-                loading="lazy" decoding="async"
-                class="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- What we stand for -->
-      <section class="bg-gray-50 py-12" aria-labelledby="values-heading">
-        <div class="container mx-auto px-4">
-          <h2 id="values-heading" class="text-2xl sm:text-3xl font-extrabold text-brand-navy mb-8 text-center">
-            What We're About
-          </h2>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
-            {values.map(v => (
-              <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
-                <div class="text-3xl mb-3" aria-hidden="true">{v.icon}</div>
-                <h3 class="font-bold text-brand-navy mb-2">{v.title}</h3>
-                <p class="text-sm text-gray-500 leading-relaxed">{v.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA strip -->
-      <section class="container mx-auto px-4 py-14 text-center" aria-label="Call to action">
-        <h2 class="text-2xl font-bold text-gray-800 mb-3">Come and see for yourself</h2>
-        <p class="text-gray-500 mb-7 max-w-md mx-auto text-sm sm:text-base">
-          Open Wednesday to Sunday, 10am–2pm. Find us at Felixstowe Ferry, right on the estuary.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="/menu"
-             class="px-7 py-3 bg-primary hover:bg-sky-600 text-white font-bold rounded-lg shadow transition-colors">
-            See Our Menu
-          </a>
-          <a href="/contact"
-             class="px-7 py-3 border-2 border-primary text-primary hover:bg-sky-50 font-bold rounded-lg transition-colors">
-            Find Us
-          </a>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- Mobile sticky bar -->
-    <div class="fixed bottom-0 inset-x-0 z-50 sm:hidden bg-white border-t border-gray-200 shadow-2xl"
-         aria-label="Quick contact">
-      <div class="grid grid-cols-2 divide-x divide-gray-200">
-        <a href="tel:+441394276305"
-           class="flex items-center justify-center gap-2 py-3.5 text-primary font-bold text-sm active:bg-sky-50">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-          </svg>
-          Call Us
+    <!-- CTA strip -->
+    <section class="container mx-auto px-4 py-14 text-center" aria-label="Call to action">
+      <h2 class="text-2xl font-bold text-gray-800 mb-3">Come and see for yourself</h2>
+      <p class="text-gray-500 mb-7 max-w-md mx-auto text-sm sm:text-base">
+        Kitchen open Wednesday to Sunday, 10am–3pm. Find us at Felixstowe Ferry, right on the estuary.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/menu"
+           class="px-7 py-3 bg-primary hover:bg-sky-600 text-white font-bold rounded-lg shadow transition-colors">
+          See Our Menu
         </a>
         <a href="/contact"
-           class="flex items-center justify-center gap-2 py-3.5 bg-primary text-white font-bold text-sm active:bg-sky-600">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-          </svg>
+           class="px-7 py-3 border-2 border-primary text-primary hover:bg-sky-50 font-bold rounded-lg transition-colors">
           Find Us
         </a>
       </div>
-    </div>
-    <div class="h-14 sm:hidden" aria-hidden="true"></div>
+    </section>
 
-    <Footer />
-  </body>
-</html>
+  </main>
+
+  <!-- Mobile sticky bar -->
+  <div class="fixed bottom-0 inset-x-0 z-50 sm:hidden bg-white border-t border-gray-200 shadow-2xl"
+       aria-label="Quick contact">
+    <div class="grid grid-cols-2 divide-x divide-gray-200">
+      <a href="tel:+441394276305"
+         class="flex items-center justify-center gap-2 py-3.5 text-primary font-bold text-sm active:bg-sky-50">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        Call Us
+      </a>
+      <a href="/contact"
+         class="flex items-center justify-center gap-2 py-3.5 bg-primary text-white font-bold text-sm active:bg-sky-600">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        Find Us
+      </a>
+    </div>
+  </div>
+  <div class="h-14 sm:hidden" aria-hidden="true"></div>
+</Layout>
