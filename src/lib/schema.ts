@@ -28,10 +28,18 @@ export const restaurantSchema = {
     addressCountry: 'GB',
   },
   geo: { '@type': 'GeoCoordinates', latitude: 51.9664, longitude: 1.3765 },
+  // Café opening hours. Kitchen stops serving at 14:00; the café stays open to
+  // 15:00. Saturdays open earlier (10:00); Wed/Thu/Fri/Sun open 11:00.
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      dayOfWeek: ['Wednesday', 'Thursday', 'Friday', 'Sunday'],
+      opens: '11:00',
+      closes: '15:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday'],
       opens: '10:00',
       closes: '15:00',
     },
@@ -46,6 +54,8 @@ export const restaurantSchema = {
     { '@type': 'LocationFeatureSpecification', name: 'Parking', value: true },
   ],
   menu: `${SITE}/menu`,
+  acceptsReservations: false,
+  sameAs: ['https://www.facebook.com/p/The-Ferry-Cafe-100048562395567/'],
   foundingDate: '1953',
   image: `${SITE}/og-image.jpg`,
   aggregateRating: {

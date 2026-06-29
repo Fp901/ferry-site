@@ -1,9 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <!-- Sky blue background circle -->
-  <circle cx="16" cy="16" r="16" fill="#0EA5E9"/>
-  <!-- Simple wave shape -->
-  <path d="M4 20 Q8 16 12 20 Q16 24 20 20 Q24 16 28 20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <!-- Fish silhouette -->
-  <path d="M9 14 Q13 10 18 13 L22 13 Q20 15 22 17 L18 17 Q13 20 9 16 L7 15 Z" fill="white"/>
-  <circle cx="11" cy="14.5" r="1" fill="#0EA5E9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Brand-navy rounded square for crisp contrast at small sizes -->
+  <rect width="32" height="32" rx="7" fill="#1a3848"/>
+  <!-- Steam -->
+  <g fill="none" stroke="#7dd3fc" stroke-width="1.7" stroke-linecap="round">
+    <path d="M12.5 5.5c-1.1 1.1-1.1 2.2 0 3.3s1.1 2.2 0 3.3"/>
+    <path d="M16 4.7c-1.1 1.1-1.1 2.2 0 3.3s1.1 2.2 0 3.3"/>
+    <path d="M19.5 5.5c-1.1 1.1-1.1 2.2 0 3.3s1.1 2.2 0 3.3"/>
+  </g>
+  <!-- Cup body -->
+  <path d="M7 14.5h13.5v4.5a5.5 5.5 0 0 1-5.5 5.5h-2.5a5.5 5.5 0 0 1-5.5-5.5z" fill="#ffffff"/>
+  <!-- Handle -->
+  <path d="M20.5 16h2.4a3 3 0 0 1 0 6h-2.4" fill="none" stroke="#ffffff" stroke-width="2.2"/>
+  <!-- Saucer -->
+  <rect x="5" y="25.5" width="18" height="2.4" rx="1.2" fill="#ffffff"/>
 </svg>

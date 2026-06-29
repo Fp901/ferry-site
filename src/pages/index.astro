@@ -25,7 +25,7 @@ const menuHighlights = [
 ];
 
 const summer = [
-  "Open seven days a week right through the school summer holidays.",
+  "Open as usual right through the school summer holidays, including every bank holiday Monday.",
   "Seasonal specials that change from time to time, ask for today's board.",
   "Takeaway fish & chips to enjoy on the shingle by the water.",
   "Dog bowls and a shady terrace for warm afternoons by the Deben.",
@@ -42,7 +42,7 @@ const nearby = [
 
 const faqs = [
   { q: "What fish & chips do you serve?",          a: "Hand-battered cod, haddock, plaice and wholetail scampi, plus grilled sea bass, served from midday with mushy peas and tartare sauce (all fish subject to daily availability). A half portion of cod & chips is also available." },
-  { q: "What are your opening hours?",            a: "Our kitchen is open Wednesday to Sunday, 10am–3pm. Closed Monday and Tuesday, except during school holidays when we open seven days a week." },
+  { q: "What are your opening hours?",            a: "We're open Wednesday to Friday and Sunday 11am to 3pm, and Saturday from 10am to 3pm. The kitchen serves until 2pm. Closed Monday and Tuesday, though we open on all bank holiday Mondays. These hours apply right through the summer holidays." },
   { q: "What time do you serve breakfast?",        a: "Cooked breakfasts and artisan breakfast rolls are served until midday. From midday we switch to fish & chips, brunch and baguettes." },
   { q: "Is The Ferry Cafe dog friendly?",          a: "Absolutely, dogs are always welcome at our Felixstowe Ferry cafe, especially on the outdoor terrace overlooking the River Deben." },
   { q: "Do you offer takeaway?",                   a: "Yes, dine-in and takeaway fish & chips are both available. Our fish & chips are perfect down by the water on the shingle." },
@@ -58,7 +58,7 @@ const faqSchema = {
 ---
 <Layout
   title="Fish & Chips at Felixstowe Ferry | The Ferry Cafe Since 1953"
-  description="Famous hand-battered fish & chips at Felixstowe Ferry since 1953. Fresh cod, haddock, plaice & scampi by the River Deben. Dog friendly, dine in or takeaway. Kitchen open Wed–Sun 10am–3pm."
+  description="Famous hand-battered fish & chips at Felixstowe Ferry since 1953. Fresh cod, haddock, plaice & scampi by the River Deben. Dog friendly, dine in or takeaway. Open Wed–Sun, kitchen serves until 2pm."
   canonical="/"
   ogType="restaurant"
   schemas={[faqSchema]}
@@ -110,7 +110,7 @@ const faqSchema = {
         <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
-        <span><strong>Kitchen:</strong>&nbsp;Wed–Sun 10am–3pm &middot; Closed Mon &amp; Tue</span>
+        <span><strong>Open Wed–Sun</strong> &middot; Sat from 10am &middot; Kitchen serves till 2pm &middot; Closed Mon &amp; Tue</span>
       </span>
       <span class="hidden sm:block text-white/30">|</span>
       <span class="flex items-center gap-2">
@@ -300,16 +300,20 @@ const faqSchema = {
             <table class="text-sm w-full">
               <tbody>
                 <tr class="border-b border-white/10">
-                  <td class="pr-4 py-1.5">Wednesday – Sunday</td>
-                  <td class="font-bold">10am – 3pm</td>
+                  <td class="pr-4 py-1.5 text-white/40">Monday &amp; Tuesday</td>
+                  <td class="text-white/40">Closed*</td>
+                </tr>
+                <tr class="border-b border-white/10">
+                  <td class="pr-4 py-1.5">Wed, Thu, Fri &amp; Sun</td>
+                  <td class="font-bold">11am – 3pm</td>
                 </tr>
                 <tr>
-                  <td class="pr-4 py-1.5 text-white/40">Monday – Tuesday</td>
-                  <td class="text-white/40">Closed*</td>
+                  <td class="pr-4 py-1.5">Saturday</td>
+                  <td class="font-bold">10am – 3pm</td>
                 </tr>
               </tbody>
             </table>
-            <p class="text-xs text-white/40 mt-2">* Open Mon &amp; Tue during school holidays</p>
+            <p class="text-xs text-white/40 mt-2">Kitchen serves until 2pm. * Open on all bank holiday Mondays.</p>
           </div>
           <div>
             <h3 class="font-bold text-sky-300 text-xs uppercase tracking-widest mb-3">Get in Touch</h3>
