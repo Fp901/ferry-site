@@ -1,0 +1,19 @@
+{
+  // Cloudflare Workers static-asset deployment for The Ferry Cafe.
+  //
+  // The site is a fully static Astro build (every route is prerendered), so we
+  // deploy `dist/` as static assets — no SSR adapter, no _worker.js.
+  //
+  // Committing this config makes deploys deterministic and stops `wrangler deploy`
+  // from auto-running `astro add cloudflare`, which otherwise switches the project
+  // to an unnecessary "hybrid" SSR build on every deploy.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ferry-site",
+  "compatibility_date": "2026-06-29",
+  "assets": {
+    "directory": "./dist"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
