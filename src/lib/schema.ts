@@ -16,7 +16,7 @@ export const restaurantSchema = {
   '@type': 'Restaurant',
   name: 'The Ferry Cafe',
   description:
-    'Iconic 1950s-themed seaside café at Felixstowe Ferry, famous for hand-battered fish & chips. Also serving cooked breakfasts, brunch, freshly baked baguettes, homemade cakes and luxury milkshakes with views over the River Deben estuary. Est. 1953.',
+    'Iconic 1950s-themed seaside café at Felixstowe Ferry, famous for hand-battered fish & chips. Also serving cooked breakfasts, brunch, large artisan baker\'s rolls, homemade cakes and barista coffee with views over the River Deben estuary. Est. 1953.',
   url: SITE,
   telephone: '+441394276305',
   address: {

@@ -15,13 +15,13 @@ const usp = [
 ];
 
 const menuHighlights = [
-  { icon: "🐟", title: "Fish & Chips",          desc: "Hand-battered cod, haddock, plaice, scampi & grilled sea bass, with mushy peas & tartare. Served from midday" },
+  { icon: "🐟", title: "Fish & Chips",          desc: "Hand-battered cod, haddock, plaice, scampi & grilled sea bass, with garden peas & homemade tartare. Served from midday" },
   { icon: "🍳", title: "Cooked Breakfast",      desc: "The Ferry Breakfast & veggie breakfast with locally sourced ingredients, served until midday" },
-  { icon: "🥖", title: "Artisan Breakfast Rolls", desc: "Suffolk bacon, sausage & egg on a freshly baked roll, served until midday" },
+  { icon: "🥖", title: "Artisan Breakfast Rolls", desc: "Suffolk bacon, sausage & egg on a handcrafted Friendly Loaf roll, served until midday" },
   { icon: "🍽️", title: "Brunch",               desc: "Suffolk ham, eggs, sausages & omelettes with chips & beans, served from midday" },
-  { icon: "🥪", title: "Baguettes & Rolls",     desc: "Freshly baked baguettes with chips, from the Suffolk Club to luxury prawn" },
+  { icon: "🥪", title: "Large Artisan Baker's Rolls", desc: "Handcrafted rolls with chips, from luxury prawn to seafood in Thousand Island sauce" },
   { icon: "🍰", title: "Homemade Cakes",        desc: "Freshly baked homemade cakes, the selection changes daily, so ask for today's choice" },
-  { icon: "🥤", title: "Milkshakes & Coffee",   desc: "Luxury milkshakes, barista coffee from our Italian espresso machine & cold drinks" },
+  { icon: "☕", title: "Barista Coffee & Drinks", desc: "Coffee from our Italian espresso machine, teas served in mugs, and cold drinks" },
 ];
 
 const summer = [
@@ -41,13 +41,13 @@ const nearby = [
 ];
 
 const faqs = [
-  { q: "What fish & chips do you serve?",          a: "Hand-battered cod, haddock, plaice and wholetail scampi, plus grilled sea bass, served from midday with mushy peas and tartare sauce (all fish subject to daily availability). A half portion of cod & chips is also available." },
+  { q: "What fish & chips do you serve?",          a: "Hand-battered cod, haddock, plaice and wholetail scampi, plus grilled sea bass, served from midday with garden peas and homemade tartare sauce (all fish subject to daily availability). A half portion of cod & chips is also available." },
   { q: "What are your opening hours?",            a: "We're open Wednesday to Friday and Sunday 11am to 3pm, and Saturday from 10am to 3pm. The kitchen serves until 2pm. Closed Monday and Tuesday, though we open on all bank holiday Mondays. These hours apply right through the summer holidays." },
-  { q: "What time do you serve breakfast?",        a: "Cooked breakfasts and artisan breakfast rolls are served until midday. From midday we switch to fish & chips, brunch and baguettes." },
+  { q: "What time do you serve breakfast?",        a: "Cooked breakfasts and artisan breakfast rolls are served until midday. From midday we switch to fish & chips, brunch and our large artisan baker's rolls." },
   { q: "Is The Ferry Cafe dog friendly?",          a: "Absolutely, dogs are always welcome at our Felixstowe Ferry cafe, especially on the outdoor terrace overlooking the River Deben." },
   { q: "Do you offer takeaway?",                   a: "Yes, dine-in and takeaway fish & chips are both available. Our fish & chips are perfect down by the water on the shingle." },
   { q: "Is there parking at The Ferry Cafe?",      a: "Parking directly adjacent to the cafe at Felixstowe Ferry (charges may apply). Public toilets opposite." },
-  { q: "Do you have vegetarian options?", a: "Yes, we serve a vegetarian breakfast, vegetarian sausage breakfast rolls, and a vegetarian sausage baguette with red onion jam. Just ask at the counter." },
+  { q: "Do you have vegetarian and vegan options?", a: "Yes, we serve a vegetarian breakfast, vegetarian/vegan sausage breakfast rolls, and a vegetarian sausage roll with red onion jam. Just ask at the counter." },
 ];
 
 const faqSchema = {
@@ -86,7 +86,7 @@ const faqSchema = {
         </p>
         <p class="text-base sm:text-lg text-white/80 mb-9 max-w-xl leading-relaxed">
           <strong class="font-semibold text-white">Hand-battered fish &amp; chips</strong> by the water,
-          with cooked breakfasts, brunch &amp; baguettes on the River Deben estuary since 1953.
+          with cooked breakfasts, brunch &amp; artisan baker's rolls on the River Deben estuary since 1953.
         </p>
         <div class="flex flex-wrap gap-3">
           <a href="/menu"
@@ -240,13 +240,13 @@ const faqSchema = {
               </svg>
             </a>
           </div>
-          <!-- Single supporting photo (the jukebox/milkshake shows the 50s interior) -->
+          <!-- Single supporting photo: the famous exterior sign at Felixstowe Ferry -->
           <div class="relative">
             <div class="rounded-2xl overflow-hidden shadow-2xl aspect-[4/5]">
               <img
-                src="/assets/food-milkshake.webp"
-                alt="Strawberry milkshake beside the vintage jukebox at The Ferry Cafe, showing the 1950s diner interior"
-                width="500" height="625" loading="lazy" decoding="async"
+                src="/assets/ferry-cafe-felixstowe-sign.webp"
+                alt="The Famous Ferry Cafe exterior sign at Felixstowe Ferry, established 1953, a reel great plaice to catch a good time"
+                width="768" height="1024" loading="lazy" decoding="async"
                 class="w-full h-full object-cover"
               />
             </div>
