@@ -29,17 +29,17 @@ export const restaurantSchema = {
   },
   geo: { '@type': 'GeoCoordinates', latitude: 51.9664, longitude: 1.3765 },
   // Café opening hours. Kitchen stops serving at 14:00; the café stays open to
-  // 15:00. Saturdays open earlier (10:00); Wed/Thu/Fri/Sun open 11:00.
+  // 15:00. Sat & Sun open 10:00; Wed/Thu/Fri open 11:00.
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Wednesday', 'Thursday', 'Friday', 'Sunday'],
+      dayOfWeek: ['Wednesday', 'Thursday', 'Friday'],
       opens: '11:00',
       closes: '15:00',
     },
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Saturday'],
+      dayOfWeek: ['Saturday', 'Sunday'],
       opens: '10:00',
       closes: '15:00',
     },

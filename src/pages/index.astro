@@ -42,7 +42,7 @@ const nearby = [
 
 const faqs = [
   { q: "What fish & chips do you serve?",          a: "Hand-battered cod, haddock, plaice and wholetail scampi, plus grilled sea bass, served from midday with garden peas and homemade tartare sauce (all fish subject to daily availability). A half portion of cod & chips is also available." },
-  { q: "What are your opening hours?",            a: "We're open Wednesday to Friday and Sunday 11am to 3pm, and Saturday from 10am to 3pm. The kitchen serves until 2pm. Closed Monday and Tuesday, though we open on all bank holiday Mondays. These hours apply right through the summer holidays." },
+  { q: "What are your opening hours?",            a: "We're open Wednesday to Friday 11am to 3pm, and Saturday and Sunday from 10am to 3pm. The kitchen serves until 2pm. Closed Monday and Tuesday, though we open on all bank holiday Mondays. These hours apply right through the summer holidays." },
   { q: "What time do you serve breakfast?",        a: "Cooked breakfasts and artisan breakfast rolls are served until midday. From midday we switch to fish & chips, brunch and our large artisan baker's rolls." },
   { q: "Is The Ferry Cafe dog friendly?",          a: "Absolutely, dogs are always welcome at our Felixstowe Ferry cafe, especially on the outdoor terrace overlooking the River Deben." },
   { q: "Do you offer takeaway?",                   a: "Yes, dine-in and takeaway fish & chips are both available. Our fish & chips are perfect down by the water on the shingle." },
@@ -63,17 +63,25 @@ const faqSchema = {
   ogType="restaurant"
   schemas={[faqSchema]}
 >
-  <!-- ══════════════════════════════════════════ TYPE-LED HERO -->
+  <link slot="head" rel="preload" as="image" href="/assets/ferry-cafe-felixstowe-hero.webp" fetchpriority="high" />
+
+  <!-- ══════════════════════════════════════════ HERO (real photo) -->
   <section
-    class="relative flex items-center min-h-[86svh] bg-gradient-to-br from-brand-navy via-[#16566c] to-primary overflow-hidden"
+    class="relative flex items-end min-h-[88svh] overflow-hidden"
     aria-label="The Ferry Cafe, Felixstowe Ferry"
   >
-    <!-- Decorative estuary wave (pure SVG, no image weight) -->
-    <svg class="absolute bottom-0 inset-x-0 w-full text-white/5" viewBox="0 0 1440 220" fill="none" preserveAspectRatio="none" aria-hidden="true">
-      <path fill="currentColor" d="M0 120l60 13.3C120 147 240 173 360 165.3 480 157 600 117 720 112c120-5 240 25 360 40s240 5 300-2.7l60-7.3V220H0z"/>
-    </svg>
+    <!-- Hero photo is the LCP element: eager, high priority, preloaded in <head> -->
+    <img
+      src="/assets/ferry-cafe-felixstowe-hero.webp"
+      alt="The Ferry Cafe at Felixstowe Ferry on a sunny day, the blue clapboard building beside the River Deben with sailing masts behind"
+      width="1600" height="1200"
+      fetchpriority="high" decoding="async"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <!-- Dark gradient for text legibility -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" aria-hidden="true"></div>
 
-    <div class="relative w-full px-5 py-24">
+    <div class="relative w-full px-5 pb-20 sm:pb-24 pt-28">
       <div class="container mx-auto max-w-3xl">
         <p class="inline-block mb-5 px-3 py-1 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full text-white text-xs sm:text-sm font-semibold tracking-widest uppercase">
           Est. 1953 &middot; Felixstowe Ferry, Suffolk
@@ -110,7 +118,7 @@ const faqSchema = {
         <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
-        <span><strong>Open Wed–Sun</strong> &middot; Sat from 10am &middot; Kitchen serves till 2pm &middot; Closed Mon &amp; Tue</span>
+        <span><strong>Open Wed–Sun</strong> &middot; Sat &amp; Sun from 10am &middot; Kitchen serves till 2pm &middot; Closed Mon &amp; Tue</span>
       </span>
       <span class="hidden sm:block text-white/30">|</span>
       <span class="flex items-center gap-2">
@@ -304,11 +312,11 @@ const faqSchema = {
                   <td class="text-white/40">Closed*</td>
                 </tr>
                 <tr class="border-b border-white/10">
-                  <td class="pr-4 py-1.5">Wed, Thu, Fri &amp; Sun</td>
+                  <td class="pr-4 py-1.5">Wednesday – Friday</td>
                   <td class="font-bold">11am – 3pm</td>
                 </tr>
                 <tr>
-                  <td class="pr-4 py-1.5">Saturday</td>
+                  <td class="pr-4 py-1.5">Saturday &amp; Sunday</td>
                   <td class="font-bold">10am – 3pm</td>
                 </tr>
               </tbody>

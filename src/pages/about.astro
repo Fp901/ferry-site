@@ -38,11 +38,16 @@ const breadcrumbs = breadcrumbSchema([
 >
   <main id="main-content" class="flex-grow">
 
-    <!-- Type-led hero (no image weight) -->
-    <div class="relative bg-gradient-to-br from-brand-navy via-[#16566c] to-primary text-white py-16 sm:py-24 overflow-hidden">
-      <svg class="absolute bottom-0 inset-x-0 w-full text-white/5" viewBox="0 0 1440 220" fill="none" preserveAspectRatio="none" aria-hidden="true">
-        <path fill="currentColor" d="M0 120l60 13.3C120 147 240 173 360 165.3 480 157 600 117 720 112c120-5 240 25 360 40s240 5 300-2.7l60-7.3V220H0z"/>
-      </svg>
+    <!-- Exterior photo hero -->
+    <div class="relative text-white py-20 sm:py-28 overflow-hidden">
+      <img
+        src="/assets/ferry-cafe-exterior.webp"
+        alt="The Famous Ferry Cafe at Felixstowe Ferry, the blue clapboard building with outdoor seating on a sunny day"
+        width="1400" height="1050"
+        loading="eager" decoding="async"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-brand-navy/70" aria-hidden="true"></div>
       <div class="relative container mx-auto px-4">
         <p class="text-sky-200 text-sm mb-1">
           <a href="/" class="hover:underline">Home</a> &rsaquo; About
@@ -92,7 +97,7 @@ const breadcrumbs = breadcrumbSchema([
               <p>
                 We're <strong>dog friendly</strong>, <strong>family friendly</strong>, and open to
                 everyone who finds their way to this quiet corner of the Suffolk coast. We're open
-                Wednesday to Sunday (Saturdays from 10am, other days from 11am) until 3pm, with the
+                Wednesday to Friday 11am to 3pm and Saturday and Sunday from 10am to 3pm, with the
                 kitchen serving until 2pm. Come hungry.
               </p>
             </div>
