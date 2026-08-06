@@ -159,7 +159,7 @@ const menuSchema = {
   "@context": "https://schema.org",
   "@type": "Menu",
   "name": "The Ferry Cafe Menu",
-  "url": `${SITE}/menu`,
+  "url": `${SITE}/menu/`,
   "hasMenuSection": sections.map(section => ({
     "@type": "MenuSection",
     "name": section.heading,
@@ -261,7 +261,7 @@ const breadcrumbs = breadcrumbSchema([
             We run <strong>seasonal specials that change from time to time</strong>. Ask at the
             counter or <a href="tel:+441394276305" class="underline font-medium">call us on 01394 276305</a>
             for today's specials. Prices vary and menu items are subject to seasonal availability;
-            <a href="/contact" class="underline font-medium">visit the cafe</a> for the current price list.
+            <a href="/contact/" class="underline font-medium">visit the cafe</a> for the current price list.
           </p>
         </aside>
 
@@ -312,7 +312,7 @@ const breadcrumbs = breadcrumbSchema([
           </svg>
           Call Us
         </a>
-        <a href="/contact"
+        <a href="/contact/"
            class="flex items-center justify-center gap-2 py-3.5 bg-primary text-white font-bold text-sm active:bg-sky-600">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

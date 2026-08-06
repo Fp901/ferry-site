@@ -17,7 +17,7 @@ export const restaurantSchema = {
   name: 'The Ferry Cafe',
   description:
     'Iconic 1950s-themed seaside café at Felixstowe Ferry, famous for hand-battered fish & chips. Also serving cooked breakfasts, brunch, large artisan baker\'s rolls, homemade cakes and barista coffee with views over the River Deben estuary. Est. 1953.',
-  url: SITE,
+  url: `${SITE}/`,
   telephone: '+441394276305',
   address: {
     '@type': 'PostalAddress',
@@ -53,7 +53,7 @@ export const restaurantSchema = {
     { '@type': 'LocationFeatureSpecification', name: 'Takeaway', value: true },
     { '@type': 'LocationFeatureSpecification', name: 'Parking', value: true },
   ],
-  menu: `${SITE}/menu`,
+  menu: `${SITE}/menu/`,
   acceptsReservations: false,
   sameAs: ['https://www.facebook.com/p/The-Ferry-Cafe-100048562395567/'],
   foundingDate: '1953',
@@ -76,7 +76,8 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: `${SITE}${item.path}`,
+      // Trailing slash to match canonical URLs.
+      item: item.path === '/' ? `${SITE}/` : `${SITE}${item.path.replace(/\/+$/, '')}/`,
     })),
   };
 }

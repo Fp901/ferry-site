@@ -30,7 +30,9 @@ const {
   schemas = [],
 } = Astro.props;
 
-const canonicalUrl = `${SITE}${canonical}`;
+// Always use a trailing slash so canonical == sitemap == served URL.
+const canonicalPath = canonical === '/' ? '/' : `${canonical.replace(/\/+$/, '')}/`;
+const canonicalUrl = `${SITE}${canonicalPath}`;
 
 // Restaurant/LocalBusiness data is carried on every page; merge in any
 // page-specific schemas (Menu, FAQ, Breadcrumb…).
