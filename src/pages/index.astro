@@ -24,11 +24,11 @@ const menuHighlights = [
   { icon: "☕", title: "Barista Coffee & Drinks", desc: "Coffee from our Italian espresso machine, teas served in mugs, and cold drinks" },
 ];
 
-const summer = [
-  "Open as usual right through the school summer holidays, including every bank holiday Monday.",
-  "Seasonal specials that change from time to time, ask for today's board.",
-  "Takeaway fish & chips to enjoy on the shingle by the water.",
-  "Dog bowls and a shady terrace for warm afternoons by the Deben.",
+const seasonal = [
+  "Warm up after a blustery walk along the Deben with hot fish & chips and a proper mug of tea.",
+  "Barista coffee, teas and luxury hot chocolate to take the chill off crisp autumn mornings.",
+  "Cosy up in the 1950s diner as the nights draw in, with your four-legged friend by your side.",
+  "Seasonal specials that change from time to time, so ask for today's board.",
 ];
 
 const nearby = [
@@ -42,7 +42,7 @@ const nearby = [
 
 const faqs = [
   { q: "What fish & chips do you serve?",          a: "Hand-battered cod, haddock, plaice and wholetail scampi, plus grilled sea bass, served from midday with garden peas and homemade tartare sauce (all fish subject to daily availability). A half portion of cod & chips is also available." },
-  { q: "What are your opening hours?",            a: "We're open Wednesday to Friday 11am to 3pm, and Saturday and Sunday from 10am to 3pm. The kitchen serves until 2pm. Closed Monday and Tuesday, though we open on all bank holiday Mondays. These hours apply right through the summer holidays." },
+  { q: "What are your opening hours?",            a: "We're open Wednesday to Friday 11am to 3pm, and Saturday and Sunday from 10am to 3pm. The kitchen serves until 2pm. Closed Monday and Tuesday, though we open on all bank holiday Mondays. It's always worth a quick call before a special trip, as hours can occasionally vary." },
   { q: "What time do you serve breakfast?",        a: "Cooked breakfasts and artisan breakfast rolls are served until midday. From midday we switch to fish & chips, brunch and our large artisan baker's rolls." },
   { q: "Is The Ferry Cafe dog friendly?",          a: "Absolutely, dogs are always welcome at our Felixstowe Ferry cafe, especially on the outdoor terrace overlooking the River Deben." },
   { q: "Do you offer takeaway?",                   a: "Yes, dine-in and takeaway fish & chips are both available. Our fish & chips are perfect down by the water on the shingle." },
@@ -269,15 +269,15 @@ const faqSchema = {
       </div>
     </section>
 
-    <!-- ══════════════════════════════════ THIS SUMMER (freshness block) -->
-    <section class="bg-sky-50 border-y border-sky-100 py-14" aria-labelledby="summer-heading">
+    <!-- ══════════════════════════════════ THIS SEASON (freshness block) -->
+    <section class="bg-sky-50 border-y border-sky-100 py-14" aria-labelledby="season-heading">
       <div class="container mx-auto px-4 max-w-3xl">
-        <p class="text-accent font-bold text-xs uppercase tracking-widest mb-2">This Summer at the Ferry</p>
-        <h2 id="summer-heading" class="text-3xl font-extrabold text-brand-navy mb-6">Summer on the Suffolk Coast</h2>
+        <p class="text-accent font-bold text-xs uppercase tracking-widest mb-2">This Autumn at the Ferry</p>
+        <h2 id="season-heading" class="text-3xl font-extrabold text-brand-navy mb-6">Autumn on the Suffolk Coast</h2>
         <ul class="space-y-3">
-          {summer.map(line => (
+          {seasonal.map(line => (
             <li class="flex gap-3 text-gray-600">
-              <span class="text-primary mt-1 shrink-0">☀️</span>
+              <span class="text-primary mt-1 shrink-0">🍂</span>
               <span>{line}</span>
             </li>
           ))}
@@ -285,7 +285,7 @@ const faqSchema = {
         <p class="text-sm text-gray-500 mt-6">
           Planning a day at Felixstowe Ferry? Call ahead on
           <a href="tel:+441394276305" class="text-primary font-semibold hover:underline">01394 276305</a>
-          to check today's specials and crab availability.
+          to check today's specials.
         </p>
       </div>
     </section>
