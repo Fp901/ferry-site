@@ -15,8 +15,8 @@ const usp = [
 ];
 
 const menuHighlights = [
-  { icon: "🐟", title: "Fish & Chips",          desc: "Hand-battered cod, haddock, plaice, scampi & grilled sea bass, with garden peas & homemade tartare. Served from midday" },
-  { icon: "🍳", title: "Cooked Breakfast",      desc: "The Ferry Breakfast & veggie breakfast with locally sourced ingredients, served until midday" },
+  { icon: "🐟", title: "Fish & Chips",          desc: "Hand-battered cod, haddock, plaice, scampi & grilled sea bass, with garden peas & homemade tartare. Served from midday", link: "/fish-and-chips/", linkText: "More on our fish & chips" },
+  { icon: "🍳", title: "Cooked Breakfast",      desc: "The Ferry Breakfast & veggie breakfast with locally sourced ingredients, served until midday", link: "/breakfast/", linkText: "More on breakfast" },
   { icon: "🥖", title: "Artisan Breakfast Rolls", desc: "Suffolk bacon, sausage & egg on a handcrafted Friendly Loaf roll, served until midday" },
   { icon: "🍽️", title: "Brunch",               desc: "Suffolk ham, eggs, sausages & omelettes with chips & beans, served from midday" },
   { icon: "🥪", title: "Large Artisan Baker's Rolls", desc: "Handcrafted rolls with chips, from luxury prawn to seafood in Thousand Island sauce" },
@@ -207,6 +207,9 @@ const faqSchema = {
               <div>
                 <h3 class="font-bold text-brand-navy mb-1">{item.title}</h3>
                 <p class="text-sm text-gray-500 leading-snug">{item.desc}</p>
+                {item.link && (
+                  <a href={item.link} class="inline-block mt-2 text-sm font-semibold text-primary hover:underline">{item.linkText} &rarr;</a>
+                )}
               </div>
             </article>
           ))}
