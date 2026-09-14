@@ -1,0 +1,218 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { breadcrumbSchema } from '../lib/schema';
+
+const things = [
+  { icon: "🏖️", title: "Shingle beach & coastal walks", text: "A quiet shingle beach and miles of walking along the sea wall and River Deben, with the coast path running back to Felixstowe seafront." },
+  { icon: "⛵", title: "Felixstowe Ferry Sailing Club", text: "A busy little estuary for sailing, dinghies and dayboats, with the sailing club and boatyard right beside the cafe." },
+  { icon: "⛳", title: "Felixstowe Ferry Golf Club", text: "Championship links golf on the doorstep, laid out along the coast and the mouth of the Deben." },
+  { icon: "🚣", title: "Foot ferry to Bawdsey", text: "A seasonal foot ferry crosses the Deben to Bawdsey Quay for walks on the Bawdsey side (spring to autumn, check current times)." },
+  { icon: "🗼", title: "Martello towers & history", text: "Napoleonic Martello towers and a genuinely old, working corner of the Suffolk coast to explore." },
+  { icon: "🦀", title: "Crabbing & birdlife", text: "Crabbing off the jetty and wading birds across the Deben marshes make it a favourite with families and nature lovers." },
+];
+
+const faqs = [
+  { q: "Where is Felixstowe Ferry?", a: "Felixstowe Ferry is a small historic hamlet at the northern end of Felixstowe, where the River Deben meets the Suffolk coast, in the Old Felixstowe area. The postcode is IP11 9RZ." },
+  { q: "Is there a cafe at Felixstowe Ferry?", a: "Yes. The Ferry Cafe has served Felixstowe Ferry since 1953, with hand-battered fish & chips, cooked breakfasts, brunch, homemade cakes and barista coffee, plus a dog-friendly terrace overlooking the River Deben. Open Wednesday to Sunday." },
+  { q: "Is there parking at Felixstowe Ferry?", a: "Yes, there is parking directly beside The Ferry Cafe at Felixstowe Ferry (charges may apply), with public toilets opposite. Follow Ferry Road through Old Felixstowe to the end." },
+  { q: "Can you get a ferry from Felixstowe to Bawdsey?", a: "Yes. A seasonal foot ferry crosses the River Deben between Felixstowe Ferry and Bawdsey Quay, running roughly from spring to autumn. Check the current timetable before you travel." },
+  { q: "What is there to do at Felixstowe Ferry?", a: "Beach and coastal walks, sailing, links golf, crabbing, birdwatching across the Deben marshes, the seasonal foot ferry to Bawdsey, and a proper meal or fish & chips at The Ferry Cafe." },
+];
+
+const breadcrumbs = breadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Felixstowe Ferry", path: "/felixstowe-ferry" },
+]);
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+};
+---
+<Layout
+  title="Felixstowe Ferry: Where to Eat, Parking & Things to Do | The Ferry Cafe"
+  description="A guide to Felixstowe Ferry, Suffolk: where to eat (fish & chips and breakfast at The Ferry Cafe since 1953), parking, the foot ferry to Bawdsey, beach and coastal walks, and things to do on the River Deben."
+  canonical="/felixstowe-ferry"
+  ogImage="https://theferry.cafe/assets/ferry-cafe-felixstowe-hero.webp"
+  ogImageAlt="The Ferry Cafe on a sunny day at Felixstowe Ferry, beside the River Deben"
+  schemas={[breadcrumbs, faqSchema]}
+>
+  <main id="main-content" class="flex-grow">
+
+    <!-- Photo hero -->
+    <div class="relative text-white py-20 sm:py-28 overflow-hidden">
+      <img
+        src="/assets/ferry-cafe-felixstowe-hero.webp"
+        alt="Felixstowe Ferry on a sunny day, the blue clapboard Ferry Cafe beside the River Deben with sailing masts behind"
+        width="1600" height="1200"
+        loading="eager" decoding="async"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-brand-navy/70" aria-hidden="true"></div>
+      <div class="relative container mx-auto px-4">
+        <p class="text-sky-200 text-sm mb-1">
+          <a href="/" class="hover:underline">Home</a> &rsaquo; Felixstowe Ferry
+        </p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold">Felixstowe Ferry</h1>
+        <p class="text-white/80 text-sm sm:text-base mt-3 max-w-2xl">
+          Where to eat, where to park and what to do at Felixstowe Ferry, the historic hamlet on the River Deben in Old Felixstowe, Suffolk.
+        </p>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <section class="py-14" aria-labelledby="intro-heading">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 id="intro-heading" class="text-2xl sm:text-3xl font-extrabold text-brand-navy mb-5">A historic corner of the Suffolk coast</h2>
+        <div class="space-y-4 text-gray-600 leading-relaxed">
+          <p>
+            <strong>Felixstowe Ferry</strong> is a small, historic hamlet at the northern tip of Felixstowe, where the
+            <strong>River Deben</strong> meets the Suffolk coast. Tucked into <strong>Old Felixstowe</strong>, it's a
+            genuinely working corner of the estuary, with a boatyard, a sailing club, a links golf course, Martello
+            towers and a quiet shingle beach, a world away from the busy town seafront.
+          </p>
+          <p>
+            At the heart of it, right on the water, sits <strong>The Ferry Cafe</strong>, feeding sailors, walkers,
+            golfers, families and day trippers at Felixstowe Ferry since 1953.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Where to eat -->
+    <section class="bg-gray-50 py-14" aria-labelledby="eat-heading">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 id="eat-heading" class="text-2xl sm:text-3xl font-extrabold text-brand-navy mb-5">Where to eat at Felixstowe Ferry</h2>
+        <div class="space-y-4 text-gray-600 leading-relaxed">
+          <p>
+            If you're looking for somewhere to eat at Felixstowe Ferry, <strong>The Ferry Cafe</strong> is the place.
+            We serve <strong>hand-battered fish &amp; chips</strong> from midday, a <strong>cooked breakfast</strong>
+            until midday, brunch, artisan baker's rolls, homemade cakes and barista coffee, all with views over the
+            River Deben estuary.
+          </p>
+          <p>
+            Eat in our retro <strong>1950s diner</strong>, settle in on the <strong>dog-friendly terrace</strong>, or
+            take your fish &amp; chips down to the shingle. We're a fully licensed, family-friendly cafe, open
+            Wednesday to Sunday.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3 mt-6">
+          <a href="/fish-and-chips/" class="px-6 py-2.5 bg-accent hover:bg-red-600 text-white font-bold rounded-full shadow transition-colors text-sm">Fish &amp; Chips</a>
+          <a href="/breakfast/" class="px-6 py-2.5 bg-brand-navy hover:bg-[#243f52] text-white font-bold rounded-full shadow transition-colors text-sm">Breakfast</a>
+          <a href="/menu/" class="px-6 py-2.5 border-2 border-primary text-primary hover:bg-sky-50 font-bold rounded-full transition-colors text-sm">Full Menu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Getting there & parking -->
+    <section class="py-14" aria-labelledby="getting-heading">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 id="getting-heading" class="text-2xl sm:text-3xl font-extrabold text-brand-navy mb-8">Getting to Felixstowe Ferry &amp; parking</h2>
+        <div class="grid sm:grid-cols-3 gap-5">
+          <div class="bg-sky-50 rounded-2xl p-6">
+            <h3 class="font-bold text-brand-navy mb-2">🚗 By car</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Follow Ferry Road through Old Felixstowe to the very end. <strong>Parking is right beside the cafe</strong>
+              (charges may apply), with public toilets opposite. Postcode <strong>IP11 9RZ</strong>.
+            </p>
+          </div>
+          <div class="bg-sky-50 rounded-2xl p-6">
+            <h3 class="font-bold text-brand-navy mb-2">🚶 On foot &amp; by bike</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Walk or cycle the coastal path and sea wall from Felixstowe seafront and Old Felixstowe, right to the
+              ferry and the cafe door.
+            </p>
+          </div>
+          <div class="bg-sky-50 rounded-2xl p-6">
+            <h3 class="font-bold text-brand-navy mb-2">🚣 By foot ferry</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              A <strong>seasonal foot ferry</strong> crosses the River Deben from Bawdsey Quay to Felixstowe Ferry,
+              running roughly spring to autumn.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Things to do -->
+    <section class="bg-gray-50 py-14" aria-labelledby="do-heading">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 id="do-heading" class="text-2xl sm:text-3xl font-extrabold text-brand-navy mb-2">Things to do at Felixstowe Ferry</h2>
+        <p class="text-gray-500 mb-8 text-sm sm:text-base">Make a day of it on this quiet stretch of the Suffolk coast.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {things.map(t => (
+            <div class="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+              <div class="text-2xl mb-2" aria-hidden="true">{t.icon}</div>
+              <h3 class="font-bold text-brand-navy text-sm mb-1">{t.title}</h3>
+              <p class="text-xs text-gray-500 leading-snug">{t.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- River Deben / area -->
+    <section class="py-14" aria-labelledby="deben-heading">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 id="deben-heading" class="text-2xl sm:text-3xl font-extrabold text-brand-navy mb-5">On the River Deben, Old Felixstowe</h2>
+        <div class="space-y-4 text-gray-600 leading-relaxed">
+          <p>
+            Felixstowe Ferry sits within the <strong>Suffolk Coast &amp; Heaths</strong> landscape, at the mouth of one
+            of the county's most beautiful estuaries. On a bright day you'll watch yachts and dayboats tacking up the
+            <strong>River Deben</strong> against a backdrop of marshland and open Suffolk sky. It's a favourite for
+            coastal and riverside walks, wildlife, and a proper seaside meal away from the crowds.
+          </p>
+          <p>
+            The wider town of Felixstowe, with its promenade, pier and gardens, is a short drive south, so the ferry
+            makes a peaceful base for a day exploring the Suffolk coast.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-gray-50 py-14" aria-labelledby="faq-heading">
+      <div class="container mx-auto px-4 max-w-2xl">
+        <h2 id="faq-heading" class="text-2xl sm:text-3xl font-extrabold text-brand-navy mb-8 text-center">Felixstowe Ferry FAQs</h2>
+        <dl class="space-y-6">
+          {faqs.map(item => (
+            <div class="border-b border-gray-200 pb-5">
+              <dt class="font-bold text-brand-navy mb-1">{item.q}</dt>
+              <dd class="text-sm text-gray-600 leading-relaxed">{item.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container mx-auto px-4 py-14 text-center" aria-label="Call to action">
+      <h2 class="text-2xl font-bold text-gray-800 mb-3">Eat at Felixstowe Ferry</h2>
+      <p class="text-gray-500 mb-7 max-w-md mx-auto text-sm sm:text-base">
+        The Ferry Cafe, Felixstowe Ferry, Suffolk IP11 9RZ. Open Wednesday to Sunday, right on the water.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/menu/" class="px-7 py-3 bg-primary hover:bg-sky-600 text-white font-bold rounded-lg shadow transition-colors">See Our Menu</a>
+        <a href="https://maps.google.com/?q=The+Ferry+Cafe+Felixstowe+Ferry+IP11+9RZ" target="_blank" rel="noopener noreferrer" class="px-7 py-3 border-2 border-primary text-primary hover:bg-sky-50 font-bold rounded-lg transition-colors">Get Directions</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Mobile sticky bar -->
+  <div class="fixed bottom-0 inset-x-0 z-50 sm:hidden bg-white border-t border-gray-200 shadow-2xl" aria-label="Quick contact">
+    <div class="grid grid-cols-2 divide-x divide-gray-200">
+      <a href="tel:+441394276305" class="flex items-center justify-center gap-2 py-3.5 text-primary font-bold text-sm active:bg-sky-50">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        Call Us
+      </a>
+      <a href="/menu/" class="flex items-center justify-center gap-2 py-3.5 bg-primary text-white font-bold text-sm active:bg-sky-600">
+        See Menu
+      </a>
+    </div>
+  </div>
+  <div class="h-14 sm:hidden" aria-hidden="true"></div>
+</Layout>

@@ -338,7 +338,10 @@ const faqSchema = {
     <!-- ══════════════════════════════════ NEARBY ACTIVITIES -->
     <section class="container mx-auto px-4 py-14" aria-labelledby="nearby-heading">
       <h2 id="nearby-heading" class="text-3xl font-extrabold text-brand-navy mb-2">Make a Day of It</h2>
-      <p class="text-gray-500 mb-8 text-sm sm:text-base">Felixstowe Ferry is the perfect base for a day on the Suffolk coast.</p>
+      <p class="text-gray-500 mb-8 text-sm sm:text-base">
+        Felixstowe Ferry is the perfect base for a day on the Suffolk coast.
+        <a href="/felixstowe-ferry/" class="text-primary font-semibold hover:underline">Explore Felixstowe Ferry &rarr;</a>
+      </p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {nearby.map(item => (
           <div class="flex gap-3 p-4 bg-sky-50 rounded-2xl hover:bg-sky-100 transition-colors">
