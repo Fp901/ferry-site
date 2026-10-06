@@ -66,7 +66,7 @@ const faqSchema = {
   ogType="restaurant"
   schemas={[faqSchema]}
 >
-  <link slot="head" rel="preload" as="image" href="/assets/ferry-cafe-felixstowe-hero.webp" fetchpriority="high" />
+  <link slot="head" rel="preload" as="image" href="/assets/ferry-cafe-felixstowe-hero.webp" imagesrcset="/assets/ferry-cafe-felixstowe-hero-800.webp 800w, /assets/ferry-cafe-felixstowe-hero-1200.webp 1200w, /assets/ferry-cafe-felixstowe-hero.webp 1600w" imagesizes="100vw" fetchpriority="high" />
 
   <!-- ══════════════════════════════════════════ HERO (real photo) -->
   <section
@@ -76,6 +76,8 @@ const faqSchema = {
     <!-- Hero photo is the LCP element: eager, high priority, preloaded in <head> -->
     <img
       src="/assets/ferry-cafe-felixstowe-hero.webp"
+      srcset="/assets/ferry-cafe-felixstowe-hero-800.webp 800w, /assets/ferry-cafe-felixstowe-hero-1200.webp 1200w, /assets/ferry-cafe-felixstowe-hero.webp 1600w"
+      sizes="100vw"
       alt="The Ferry Cafe at Felixstowe Ferry on a sunny day, the blue clapboard building beside the River Deben with sailing masts behind"
       width="1600" height="1200"
       fetchpriority="high" decoding="async"
