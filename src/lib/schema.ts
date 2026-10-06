@@ -52,6 +52,8 @@ export const restaurantSchema = {
     { '@type': 'LocationFeatureSpecification', name: 'Outdoor Seating', value: true },
     { '@type': 'LocationFeatureSpecification', name: 'Takeaway', value: true },
     { '@type': 'LocationFeatureSpecification', name: 'Parking', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Licensed / Serves Alcohol', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Good for Children', value: true },
   ],
   menu: `${SITE}/menu/`,
   acceptsReservations: false,
