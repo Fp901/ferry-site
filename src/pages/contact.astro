@@ -6,12 +6,27 @@ const breadcrumbs = breadcrumbSchema([
   { name: "Home",    path: "/" },
   { name: "Contact", path: "/contact" },
 ]);
+
+const faqs = [
+  { q: "Where is The Ferry Cafe?", a: "The Ferry Cafe is at Felixstowe Ferry, Suffolk, postcode IP11 9RZ, at the mouth of the River Deben in Old Felixstowe. Follow Ferry Road through Old Felixstowe to the very end." },
+  { q: "Is The Ferry Cafe open today?", a: "We're open Wednesday to Friday 11am to 3pm, and Saturday and Sunday 10am to 3pm, with the kitchen serving until 2pm. We're closed Monday and Tuesday, except on bank holiday Mondays. Hours can occasionally vary, so call 01394 276305 before a special trip." },
+  { q: "Is there parking at Felixstowe Ferry?", a: "Yes, there is parking directly beside the cafe at Felixstowe Ferry (charges may apply), with public toilets opposite." },
+  { q: "How do I get to The Ferry Cafe?", a: "By car, follow Ferry Road through Old Felixstowe to the end (IP11 9RZ). On foot or by bike, take the coastal path and sea wall from Felixstowe seafront. A seasonal foot ferry also crosses the River Deben from Bawdsey Quay." },
+  { q: "Is The Ferry Cafe dog friendly?", a: "Yes, dogs are always welcome, inside the 1950s diner and out on the terrace overlooking the River Deben." },
+  { q: "Do you take bookings?", a: "No need to book, just come along. We're a walk-in cafe; at busy times there may be a short wait." },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+};
 ---
 <Layout
   title="Find Us – The Ferry Cafe | Felixstowe Ferry, Suffolk IP11 9RZ"
   description="Find The Ferry Cafe at Felixstowe Ferry, Suffolk IP11 9RZ. Open Wed–Fri 11am–3pm, Sat & Sun 10am–3pm; kitchen serves until 2pm. Call 01394 276305."
   canonical="/contact"
-  schemas={[breadcrumbs]}
+  schemas={[breadcrumbs, faqSchema]}
 >
     <main id="main-content" class="flex-grow">
 
@@ -174,6 +189,21 @@ const breadcrumbs = breadcrumbSchema([
           </div>
         </div>
       </div>
+
+      <!-- FAQ -->
+      <section class="bg-gray-50 py-14" aria-labelledby="faq-heading">
+        <div class="container mx-auto px-4 max-w-2xl">
+          <h2 id="faq-heading" class="text-2xl sm:text-3xl font-extrabold text-brand-navy mb-8 text-center">Visiting us: your questions</h2>
+          <dl class="space-y-6">
+            {faqs.map(item => (
+              <div class="border-b border-gray-200 pb-5">
+                <dt class="font-bold text-brand-navy mb-1">{item.q}</dt>
+                <dd class="text-sm text-gray-600 leading-relaxed">{item.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
 
       <!-- Review nudge -->
       <div class="bg-amber-50 border-t border-amber-100 py-10">

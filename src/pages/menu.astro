@@ -177,12 +177,27 @@ const breadcrumbs = breadcrumbSchema([
   { name: "Home", path: "/" },
   { name: "Menu", path: "/menu" },
 ]);
+
+const faqs = [
+  { q: "Do you have vegetarian and vegan options?", a: "Yes. We serve a vegetarian breakfast, vegetarian/vegan sausage breakfast rolls, a vegetarian sausage roll with red onion jam, and vegetarian sausage brunches with chips and beans. Just ask at the counter." },
+  { q: "Do you cater for allergies or dietary requirements?", a: "Please speak to our team when you order and we'll be happy to talk through the ingredients and options to help you choose." },
+  { q: "Do you do takeaway?", a: "Yes, dine-in and takeaway are both available. Our fish & chips are perfect taken down to the shingle beach by the water at Felixstowe Ferry." },
+  { q: "Is The Ferry Cafe licensed?", a: "Yes, we're a fully licensed establishment. We serve beer, cider and wine alongside soft drinks, barista coffee and hot chocolate. Over-18s only for alcohol; please drink responsibly." },
+  { q: "Do you have a children's menu?", a: "Yes. Our children's meals (chicken nuggets, sausage, fish fingers, or beans on toast) are served with chips, beans and a Fruit Shoot." },
+  { q: "Do you serve cakes and coffee?", a: "Yes, freshly baked homemade cakes (the selection changes daily), barista coffee from our Italian espresso machine, teas and luxury hot chocolate." },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+};
 ---
 <Layout
   title="Menu – The Ferry Cafe Felixstowe | Fish & Chips, Brunch & Breakfast"
   description="The Ferry Cafe menu: hand-battered fish & chips (cod, haddock, plaice & scampi), plus cooked breakfasts, brunch, large artisan baker's rolls, children's meals, homemade cakes & barista coffee. Felixstowe Ferry, Suffolk."
   canonical="/menu"
-  schemas={[menuSchema, breadcrumbs]}
+  schemas={[menuSchema, breadcrumbs, faqSchema]}
 >
     <main id="main-content" class="flex-grow">
 
@@ -306,6 +321,21 @@ const breadcrumbs = breadcrumbSchema([
         </section>
 
       </div>
+
+      <!-- FAQ -->
+      <section class="bg-gray-50 py-14" aria-labelledby="faq-heading">
+        <div class="container mx-auto px-4 max-w-2xl">
+          <h2 id="faq-heading" class="text-2xl sm:text-3xl font-extrabold text-brand-navy mb-8 text-center">Menu FAQs</h2>
+          <dl class="space-y-6">
+            {faqs.map(item => (
+              <div class="border-b border-gray-200 pb-5">
+                <dt class="font-bold text-brand-navy mb-1">{item.q}</dt>
+                <dd class="text-sm text-gray-600 leading-relaxed">{item.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
     </main>
 
     <!-- Mobile sticky bar -->
